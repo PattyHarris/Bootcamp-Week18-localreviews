@@ -65,3 +65,11 @@ And lastly, refactor 'index.js' to contain minimal content:
 2. Later, when the user wants to review something, they will need to login if they haven't already.
 3. Add a 'pages/admin.js' file where admins can add items to the home page.
 4. Temporarily, login using the above URL and then set the 'isAdmin' flag to true. Then, to bring up the admin page, use 'http://localhost:3000/admin'. Note: I missed setting up 'pages/api/auth/[...nextauth].js' properly with 'isAdmin' - fixed.
+
+## Allow the Admin to Add New Items
+
+1. Add a table (Items) to the database that allows for additions of items. To distinguish items from each other, there is a 'type' field that signifies whether the item is a 'restaurant', 'hotel' or 'thing-to-do'. This simplistic table is to keep things simple.
+2. To 'pages/admin.js', add a form to allow entry of new items.
+3. In the 'onSubmit' for the form, we'll post a request to 'api/new'. The page is then reloaded to allow for sequential entry of items.
+4. Add the endpoint handler to 'pages/api/new.js' where there are additional checks to make sure the current user is an admin. For the newly entered item, the rating is initialized to 0.
+5.
