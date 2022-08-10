@@ -58,3 +58,10 @@ And lastly, refactor 'index.js' to contain minimal content:
 
 1. Setup the home page with some hard coded listings (e.g. restaurants, hotels, things to do).
 2. The hard coded data will eventually be replaced with data from the database.
+
+## Create the Admin Page
+
+1. We will use mail authentication as before. At the moment, we're keeping the sign-in URL (http://localhost:3000/api/auth/signin) hidden.
+2. Later, when the user wants to review something, they will need to login if they haven't already.
+3. Add a 'pages/admin.js' file where admins can add items to the home page.
+4. Temporarily, login using the above URL and then set the 'isAdmin' flag to true. Then, to bring up the admin page, use 'http://localhost:3000/admin'. Note: I missed setting up 'pages/api/auth/[...nextauth].js' properly with 'isAdmin' - fixed.
