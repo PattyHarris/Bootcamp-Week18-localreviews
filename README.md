@@ -35,6 +35,7 @@ As with the other projects:
       - Refactor 'pages/_app.js' to use the 'SessionProvider'.
 
 And lastly, refactor 'index.js' to contain minimal content:
+
 ```
         import Head from 'next/head'
 
@@ -52,3 +53,8 @@ And lastly, refactor 'index.js' to contain minimal content:
         )
         }
 ```
+
+## Create the Home Page
+
+1. Setup the home page with some hard coded listings (e.g. restaurants, hotels, things to do).
+2. The hard coded data will eventually be replaced with data from the database.
