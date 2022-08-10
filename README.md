@@ -86,4 +86,11 @@ And lastly, refactor 'index.js' to contain minimal content:
 2. To handle the item display, create the 'pages/[id].js'. And as with 'pages/index.js', the data is setup in the 'getServerSideProps'. The 'getServerSideProps' accepts the 'params' data to allow access to the dynamic route ID parameter. To test, use 'http://localhost:3000/8', where '8' is the ID for the item.
 3. In 'pages/index.js', refactor to add links to each of the items. The current tailwind uses 'a' instead of 'li', which removes the numbering - but Flavio doesn't think the number is necessary.
 4. Refactor the rating shown 'pages/[id].js' so that if there is no rating, e.g. the value is 0, we don't show a rating.
-5. Ratings range from 1 to 5 and if exist are shown with the star emoji.  There's some odd calculations and ...Array usage to show the stars.  From the tutorial: "This is because we’ll store ratings as integers to avoid dealing with decimals.  So if the rating is '4' because it has 2 reviews, one '5' and one '3', in the database we’ll see '40'."
+5. Ratings range from 1 to 5 and if exist are shown with the star emoji. There's some odd calculations and ...Array usage to show the stars. From the tutorial: "This is because we’ll store ratings as integers to avoid dealing with decimals. So if the rating is '4' because it has 2 reviews, one '5' and one '3', in the database we’ll see '40'."
+
+## Allow People to Add Reviews
+
+1. Add a Review table (aka model) and a relationship between the item and it's reviews. Make sure to run 'npx primsa migrate dev'.
+2. Add a form to 'pages/[id].js' to allow addition of a review.
+3. The endpoint to save the review is handled by 'pages/api/review.js'.
+4. We store the average rating, so before storing the new rating, we need to average out the current value (e.g. const rating = ratingsValues / reviews.length).

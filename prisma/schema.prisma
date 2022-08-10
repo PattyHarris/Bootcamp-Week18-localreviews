@@ -67,4 +67,13 @@ model Item {
   description  String
   type         String
   rating       Int
+  reviews     Review[]
+}
+
+model Review {
+  id          Int    @id @default(autoincrement())
+  description String
+  rating      Int
+  itemId      Int
+  item        Item   @relation(fields: [itemId], references: [id])
 }
