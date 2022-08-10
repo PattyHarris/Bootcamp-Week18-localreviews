@@ -1,6 +1,7 @@
 import Head from "next/head";
 import prisma from "lib/prisma";
 import { getItems } from "lib/data";
+import Link from "next/link";
 
 export default function Home({ restaurants, hotels, thingsToDo }) {
   return (
@@ -21,7 +22,9 @@ export default function Home({ restaurants, hotels, thingsToDo }) {
 
               <ol className="mt-4 list-inside list-decimal">
                 {restaurants.map((item, index) => (
-                  <li key={index}>{item.name}</li>
+                  <Link href={`/${item.id}`} key={index}>
+                    <a className="block cursor-pointer">{item.name}</a>
+                  </Link>
                 ))}
               </ol>
             </div>
@@ -33,7 +36,9 @@ export default function Home({ restaurants, hotels, thingsToDo }) {
 
               <ol className="mt-4 list-inside list-decimal">
                 {hotels.map((item, index) => (
-                  <li key={index}>{item.name}</li>
+                  <Link href={`/${item.id}`} key={index}>
+                    <a className="block cursor-pointer">{item.name}</a>
+                  </Link>
                 ))}
               </ol>
             </div>
@@ -45,7 +50,9 @@ export default function Home({ restaurants, hotels, thingsToDo }) {
 
               <ol className="mt-4 list-inside list-decimal">
                 {thingsToDo.map((item, index) => (
-                  <li key={index}>{item.name}</li>
+                  <Link href={`/${item.id}`} key={index}>
+                    <a className="block cursor-pointer">{item.name}</a>
+                  </Link>
                 ))}
               </ol>
             </div>
