@@ -72,4 +72,10 @@ And lastly, refactor 'index.js' to contain minimal content:
 2. To 'pages/admin.js', add a form to allow entry of new items.
 3. In the 'onSubmit' for the form, we'll post a request to 'api/new'. The page is then reloaded to allow for sequential entry of items.
 4. Add the endpoint handler to 'pages/api/new.js' where there are additional checks to make sure the current user is an admin. For the newly entered item, the rating is initialized to 0.
-5.
+
+## Display Items from the Database
+
+1. Currently we show hard coded items. Now we'll pull them from the database.
+2. As in past projects, add 'lib/data.js'. Add the 'getItems' function to return the items sorted by their rating (currently all 0).
+3. In 'pages/index.js', call 'getItems' from 'getServerSideProps' - add the props as input to the 'Home' page.
+4. Now, instead of displaying the hard coded data, display the data from the database ('pages/index.js').
