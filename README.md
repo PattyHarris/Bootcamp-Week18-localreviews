@@ -94,3 +94,26 @@ And lastly, refactor 'index.js' to contain minimal content:
 2. Add a form to 'pages/[id].js' to allow addition of a review.
 3. The endpoint to save the review is handled by 'pages/api/review.js'.
 4. We store the average rating, so before storing the new rating, we need to average out the current value (e.g. const rating = ratingsValues / reviews.length).
+
+## Display Reviews
+
+1. In 'getItem', include the reviews when the item is accessed from the database:
+
+```
+export const getItem = async (prisma, id) => {
+  const item = await prisma.item.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      reviews: true,
+    },
+  })
+
+  return item
+}
+```
+
+2. Add the list of reviews to 'pages/[id].js'. Note that the mapping function shown in the tutorial is missing the usual key={index} code (I've added).
+
+And that is all folks!
